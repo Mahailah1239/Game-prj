@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioOnCollide : MonoBehaviour
 {
     AudioSource myAudioSource;
+    public string SpecificObj = "StockPongBall";
     // Start is called before the first frame update
     void Start()
     {
@@ -13,13 +14,15 @@ public class AudioOnCollide : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        myAudioSource.Play();
+        if(collision.gameObject.name == SpecificObj)
+            myAudioSource.Play();
         
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        myAudioSource.Play();
+        if (collision.gameObject.name == SpecificObj)
+            myAudioSource.Play();
        
     }
 
